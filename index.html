@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Calculator</title>
+
+    <!-- css -->
+
+    <link rel="stylesheet" href="./style.css">
+
+    <!-- Javascript -->
+
+    <script src="./script.js"></script>
+
+    <!-- fonts -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <!-- bootstrap -->
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+    <!-- FontAwesome -->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+</head>
+<body>
+
+
+    <!-- navbar -->
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-body-tertiary">
+    <!-- Container wrapper -->
+    <div class="container">
+      <!-- Navbar brand -->
+      <a class="navbar-brand me-2" href="https://mdbgo.com/">
+        <img
+        class="logoImage"
+          src="./Images/unnamed.webp"
+          height="40"
+          alt="healthify"
+          loading="lazy"
+          style="margin-top: -1px;"
+          
+        />
+      </a>
+  
+      <!-- Toggle button -->
+      <button
+        data-mdb-collapse-init
+        class="navbar-toggler"
+        type="button"
+        data-mdb-target="#navbarButtonsExample"
+        aria-controls="navbarButtonsExample"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <i class="fas fa-bars"></i>
+      </button>
+  
+      <!-- Collapsible wrapper -->
+      <div class="collapse navbar-collapse" id="navbarButtonsExample">
+        <!-- Left links -->
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link LogoName" href="#"><b>Healthify</b></a>
+          </li>
+        </ul>
+        <!-- Left links -->
+  
+        <div class="d-flex align-items-center">
+          <button id="LoginButton" type="button" class="btn LoginButton px-3 me-2">
+            Login
+          </button>
+          <button id="signInButton" type="button" class="btn me-3">
+            Sign up for free
+          </button>
+         
+        </div>
+      </div>
+      <!-- Collapsible wrapper -->
+    </div>
+    <!-- Container wrapper -->
+  </nav>
+  <!-- Navbar -->
+
+
+  <!-- container -->
+
+  <div class="container">
+    <h1 class="bodyHeading mt-5">Body Mass Index Calculator(BMI)</h1>
+    <p class="paraHeading mt-4">The Body Mass Index (BMI) helps in calculating the height-to-weight 
+        ratio of a person. The score determines if a person is at his/her healthy 
+        weight or needs to shed or gain more kilos. A BMI calculator is widely used 
+        as a general tool to assess if a person has a healthy body weight proportional
+        to their height.</p>
+  </div>
+
+  <div class="container_1 mx-auto mt-5">
+    <h5 class="mt-4 mx-auto"><b>BMI Calculator</b></h5>
+
+
+    <form class="calculator mt-4" onsubmit="formSubmit(event)">
+      <!-- Male/Female Switch -->
+      <div>
+        <label for="Gender">Gender</label>
+        <input type="radio" id="male" name="gender" value="male" onchange="toggleGender()" checked>
+        <label for="male">Male</label>
+        <input type="radio" id="female" name="gender" value="female" onchange="toggleGender()">
+        <label for="female">Female</label>
+    </div>
+    
+      <div>
+        <label for="age">Age</label>
+        <input type="number" id="age" min="0" step="1" value="0">
+       </div>
+       <div>
+        <label for="weight">Weight (KG)</label>
+        <input type="number" id="weight" min="0" step="0.01" value="0">
+       </div>
+
+       <div>
+        <label for="height">Height (CM)</label>
+        <input type="number" id="height" min="0" step="0.01" value="0">
+       </div>
+
+       <div>
+        <button onclick="formReset()" type="reset">Reset</button>
+        <button onclick="calculateBMI()" type="submit">Submit</button>
+       </div>
+    </form>
+
+    <section class="output">
+      <h5 class="mt-5">Your BMI is</h5 >
+      <p id="bmi">0</p>
+      <p id="desc">N/A</p>
+
+    </section>
+  </section>
+
+    <section class="bmi_scale">
+      <div style="--color:var(--underweight)">
+        <h6><b>Underweight</b></h6>
+        <p>&lt; 18.5</p>
+      </div>
+
+      <div style="--color:var(--normal)">
+        <h6><b>Normal</b></h6>
+        <p> 18.5 - 25</p>
+      </div>
+
+      <div style="--color:var(--overweight)">
+        <h6><b>Overweight</b></h6>
+        <p>25 - 30</p>
+      </div>
+
+      <div style="--color:var(--obese)">
+        <h6><b>Obese</b></h6>
+        <p>> 30</p>
+      </div>
+      
+    </section>
+  </div>
+
+  <section class="container">
+    <h1 class="bodyHeading mt-5">Introduction to the body mass index (BMI)</h1>
+   <p class="paraHeading mt-4">Body Mass Index (BMI) is widely used as an indicator of body fat content. Your weight alone is not sufficient to establish if you are in a healthy weight range. For example, a tall but slender person can weigh more than a short but plump individual. But the former may enjoy better health as long as their weight is suitable for their height. The ideal weight is also likely to differ for men and women of similar heights.
+<br><br>
+    How then do you know whether you fall in the healthy weight range or not? Your BMI solves this confusion. It correlates your weight with your height and evaluates whether your weight is appropriate for your stature. You can use a BMI calculator to find out your BMI.
+    <br> <br>
+    Although not an exact measurement of body fat percentage, in most cases, BMI is a reliable tool for establishing risk levels for illnesses, especially ailments related to excess body fat. Many healthcare professionals use BMI to determine effective doses for medicines. Often people with a higher BMI need higher doses. Hence, it is crucial to be aware of your BMI to ensure your overall wellness.</p>
+  
+  </section>
+
+
+
+</body>
+</html>

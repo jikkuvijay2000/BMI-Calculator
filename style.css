@@ -1,0 +1,163 @@
+*
+{
+    font-family: "Jost", sans-serif;
+    box-sizing: border-box;
+    padding: 0;
+
+}
+
+
+:root
+{
+    --underweight:orange;
+    --normal:green;
+    --overweight:lightcoral;
+    --obese: crimson ;
+}
+
+
+
+
+#signInButton
+{
+    background-color:darkcyan;
+    color: white;
+}
+
+#LoginButton
+{
+    color: cadetblue;
+ 
+
+}
+
+.bodyHeading
+{
+    text-align: center;
+    color: cadetblue;
+    
+}
+
+.container_1
+{
+    display: grid;  
+    width: 90%;
+    max-width: 550px;
+    padding: 3rem;
+    border-radius: 10px;
+   
+    box-shadow: 0px 10px 15px rgba(0, 0,0,0.25);
+    gap: 1rem; 
+     
+
+    
+}
+
+.calculator
+{
+    display: grid;
+    gap:1rem;
+}
+
+.calculator div
+{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.calculator label
+{
+    flex: 0 1 120px;
+    font-weight: 600;
+
+}
+.calculator input
+{
+    flex: 1;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px;
+    outline-color:#555 ;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.calculator button
+{
+    width: 50%;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    padding: 5px;
+    cursor: pointer;
+    background: cadetblue;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.calculator button[type="reset"]
+{
+    background-color: #555;
+}
+
+.calculator button:hover
+{
+    filter: brightness(120%);
+}
+
+.output
+{
+    text-align: center;
+}
+
+.output #bmi
+{
+    font-size: 4rem;
+}
+
+.output #desc strong
+{
+    text-transform: uppercase;
+}
+
+.bmi_scale
+{
+    display: flex;
+
+}
+
+.bmi_scale div
+{
+    flex: 1;
+    text-align: center;
+    text-transform: uppercase;
+    border-top: 5px solid var(--color);
+    padding: 10px;
+}
+.bmi_scale h6
+{
+    font-size: 0.75rem;
+    color: slategray;
+    
+}
+
+
+.underweight
+{
+    color: var(--underweight);
+}
+
+.normal
+{
+    color: var(--normal);
+}
+
+.overweight
+{
+    color: var(--overweight);
+}
+
+.obese
+{
+    color: var(--obese);
+}
